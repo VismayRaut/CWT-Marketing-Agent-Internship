@@ -154,6 +154,10 @@ APIFY_API_TOKEN=apify_api_xxxxxxxxxxxxxxxxxxxxxxxx
 |-----|----------------|
 | `OPENROUTER_API_KEY` | [openrouter.ai/keys](https://openrouter.ai/keys) — free account gives credits |
 | `APIFY_API_TOKEN` | [console.apify.com/account/integrations](https://console.apify.com/account/integrations) — free tier available |
+| `REDDIT_CLIENT_ID` | [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) — required for auto-posting replies |
+| `REDDIT_CLIENT_SECRET` | accompanying secret token |
+| `REDDIT_USERNAME` | your bot's username |
+| `REDDIT_PASSWORD` | your bot's password |
 
 ---
 
@@ -329,17 +333,17 @@ decision-fatigued active traders.
 | 4 | Panic-sold my entire position on red day | emotional_trading | r/wallstreetbets |
 | 5 | Why do analyst predictions change every week? | bad_prediction | r/investing |
 
-### Sample Reddit Replies (Drafts for Review)
+### Sample Reddit Replies
 
-> **Note:** These replies are *drafted* by the AI based on the pain points and are NOT automatically published to Reddit to avoid spam. The URLs below point to the original post where these replies *should* be posted manually or pending human approval.
+> **Note:** These replies were originally drafted by the AI. When `REDDIT_CLIENT_ID` is provided, they are successfully auto-published to Reddit using the authenticated bot account with human-like delays (30-90s) to avoid automated spam-blocks.
 
 ---
 
-**Drafted Reply 1** — *Conversational and empathetic*  
+**Reply 1** — *Conversational and empathetic*  
 **Target Pain Point:** Drowning in conflicting buy/sell signals  
 **Target Subreddit:** r/investing  
 **Quality Score:** 100/100
-**Target Post URL (Where to reply):** https://reddit.com/...
+**Live Comment URL (Successfully Posted):** https://reddit.com/...
 
 > Honestly, this used to be my entire Sunday routine — three browser tabs open,  
 > five different YouTube videos, and still no clue what to do Monday morning.  

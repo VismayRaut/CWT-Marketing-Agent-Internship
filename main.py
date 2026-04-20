@@ -56,7 +56,7 @@ from agents.report_agent import ReportAgent
 from agents.reddit_agent import RedditPainAgent
 from agents.reply_agent import ReplyAgent
 from agents.learning_agent import LearningAgent
-
+from agents.reddit_poster import RedditPostAgent
 
 # ===========================================================================
 # Helpers
@@ -187,9 +187,14 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
             print(f"  {line}")
         print()
 
+    # ── 6.5 RedditPostAgent (Auto-publishing) --------------------------------
+    _section("Step 4.5 · Publishing Replies to Reddit")
+    reddit_poster = RedditPostAgent()
+    posted_replies = reddit_poster.run(replies)
+
     # ── 7. LearningAgent – score & store replies ----------------------------
     _section("Step 5 · Closing the Learning Loop")
-    scored_replies = [learning.evaluate_reply_quality(r) for r in replies]
+    scored_replies = [learning.evaluate_reply_quality(r) for r in posted_replies]
     learning.store_replies(scored_replies)
 
     avg_score = learning.get_avg_quality_score()
@@ -262,14 +267,19 @@ def _write_output(
             f"{pp.get('pain_summary','')}  \n"
             f"Source: {pp.get('url','')}\n"
         )
-    lines += ["\n---\n", "## Reddit Replies (Drafts for Review)\n", "> **Note:** These replies are *drafted* by the AI based on the pain points and are NOT automatically published to Reddit to avoid spam. The URLs below point to the original post where these replies *should* be posted manually or pending human approval.\n\n"]
+    lines += ["\n---\n", "## Reddit Replies\n", "> **Note:** These replies were originally drafted by the AI based on the pain points. Replies with a 'Live Comment URL' have been successfully auto-published to Reddit using the authenticated bot account.\n\n"]
     for i, r in enumerate(replies, 1):
+        # Determine the URL depending on whether the post went live
+        is_live = r.get("posted_successfully", False)
+        url_label = "**Live Comment URL (Successfully Posted):**" if is_live else "**Target Post URL (Draft Only):**"
+        url_val = r.get("live_url") if is_live else r.get("url", "")
+        
         lines.append(
-            f"### Drafted Reply {i} — {r['tone']}\n"
+            f"### Reply {i} — {r['tone']}\n"
             f"**Target Pain Point:** {r['pain_point_title']}  \n"
             f"**Target Subreddit:** r/{r.get('subreddit','?')}  \n"
             f"**Quality Score:** {r.get('quality_score', 'N/A')}/100  \n"
-            f"**Target Post URL (Where to reply):** {r.get('url','')}\n\n"
+            f"{url_label} {url_val}\n\n"
             f"{r['reply_text']}\n"
         )
 
