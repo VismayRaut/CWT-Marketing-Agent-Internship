@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Default free model on OpenRouter
 # ---------------------------------------------------------------------------
-DEFAULT_MODEL = "mistralai/mistral-7b-instruct:free"
+DEFAULT_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -47,8 +47,8 @@ class LLMClient:
         self,
         api_key: Optional[str] = None,
         model: str = DEFAULT_MODEL,
-        max_retries: int = 3,
-        retry_delay: float = 2.0,
+        max_retries: int = 5,
+        retry_delay: float = 5.0,
     ):
         self.api_key = api_key or os.getenv("OPENROUTER_API_KEY", "")
         if not self.api_key:

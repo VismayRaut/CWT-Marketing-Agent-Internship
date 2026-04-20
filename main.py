@@ -70,9 +70,9 @@ def _banner(text: str) -> None:
 
 
 def _section(title: str) -> None:
-    print(f"\n{'─' * 60}")
+    print(f"\n{'-' * 60}")
     print(f"  {title}")
-    print("─" * 60)
+    print("-" * 60)
 
 
 def _check_env() -> None:
@@ -85,8 +85,8 @@ def _check_env() -> None:
     if missing:
         logger.error("Missing required environment variables: %s", ", ".join(missing))
         print(
-            "\n❌  ERROR: The following environment variables are not set:\n"
-            + "\n".join(f"   • {v}" for v in missing)
+            "\n[X] ERROR: The following environment variables are not set:\n"
+            + "\n".join(f"   * {v}" for v in missing)
             + "\n\nSee README.md for setup instructions."
         )
         sys.exit(1)
@@ -104,20 +104,20 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
 
     # ── 1. Clients -----------------------------------------------------------
     logger.info("Initialising clients…")
-    llm = LLMClient(model=os.getenv("LLM_MODEL", "mistralai/mistral-7b-instruct:free"))
+    llm = LLMClient(model=os.getenv("LLM_MODEL", "openrouter/auto"))
     apify = ApifyClient()
 
     # ── 2. Learning Agent (load memory FIRST) --------------------------------
     _section("Loading Memory (LearningAgent)")
     learning = LearningAgent()
     stats = learning.get_memory_stats()
-    print(f"  📂 Memory stats: {stats}")
+    print(f"  [Memory] Memory stats: {stats}")
 
     past_pain_points = learning.get_past_pain_points()
     past_replies = learning.get_past_replies()
     refined_queries = learning.suggest_refined_queries()
     if refined_queries:
-        print(f"  🔍 Refined search queries from memory:\n    " +
+        print(f"  [Search] Refined search queries from memory:\n    " +
               "\n    ".join(refined_queries))
 
     # ── 3. CompetitorResearchAgent -------------------------------------------
@@ -129,7 +129,7 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
         logger.warning("No competitors returned – using cached data if available.")
         competitors = learning.get_last_competitors(company_url) or []
 
-    print(f"\n  ✅  Found {len(competitors)} competitors:\n")
+    print(f"\n  [OK] Found {len(competitors)} competitors:\n")
     for i, c in enumerate(competitors, 1):
         print(f"  {i:2d}. [{c['category'].upper()}] {c['name']}")
         print(f"       {c['url']}")
@@ -143,7 +143,7 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
     _section("Step 2 · Generating Competitor Analysis Report")
     report_agent = ReportAgent(llm)
     report = report_agent.run(competitors, company_url)
-    print(f"\n  ✅  Report generated ({len(report)} chars).\n")
+    print(f"\n  [OK] Report generated ({len(report)} chars).\n")
     # Print first 800 chars as preview
     print(report[:800] + "\n  … [truncated – see output file for full report]\n"
           if len(report) > 800 else report)
@@ -162,7 +162,7 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
         queries=queries_to_use, past_pain_points=past_pain_points
     )
 
-    print(f"\n  ✅  Extracted {len(pain_points)} pain points:\n")
+    print(f"\n  [OK] Extracted {len(pain_points)} pain points:\n")
     for i, pp in enumerate(pain_points, 1):
         cat = pp.get("pain_category", "other")
         print(f"  {i:2d}. [{cat}] {pp.get('title', '')}")
@@ -176,11 +176,11 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
     reply_agent = ReplyAgent(llm, replies_per_run=5)
     replies = reply_agent.run(pain_points, past_replies=past_replies)
 
-    print(f"\n  ✅  Generated {len(replies)} human-like Reddit replies:\n")
+    print(f"\n  [OK] Generated {len(replies)} human-like Reddit replies:\n")
     for i, r in enumerate(replies, 1):
-        print(f"  ── Reply {i} (tone: {r['tone']}) ──────────────────────")
-        print(f"  🎯 Pain: {r['pain_point_title']}")
-        print(f"  📍 Subreddit: r/{r.get('subreddit','?')}   |   {r.get('url','')}")
+        print(f"  --- Reply {i} (tone: {r['tone']}) ----------------------")
+        print(f"  Target Pain: {r['pain_point_title']}")
+        print(f"  Subreddit: r/{r.get('subreddit','?')}   |   {r.get('url','')}")
         print()
         # Indent reply text for readability
         for line in r["reply_text"].splitlines():
@@ -198,7 +198,7 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
     learning.store_replies(scored_replies)
 
     avg_score = learning.get_avg_quality_score()
-    print(f"\n  📊 Average reply quality score: {avg_score:.1f} / 100")
+    print(f"\n  [Stats] Average reply quality score: {avg_score:.1f} / 100")
     for r in scored_replies:
         print(f"     • {r['pain_point_title'][:50]:<50}  score={r['quality_score']}")
 
@@ -222,16 +222,16 @@ def run_pipeline(company_url: str, output_file: str | None = None) -> None:
         _write_output(
             output_file, company_url, competitors, report, pain_points, scored_replies
         )
-        print(f"\n  📄 Full output written to: {output_file}")
+        print(f"\n  [File] Full output written to: {output_file}")
 
     # ── 10. Summary ----------------------------------------------------------
     _banner("Pipeline Complete")
-    print(f"  ⏱  Elapsed : {elapsed:.1f}s")
-    print(f"  🏢 Competitors   : {len(competitors)}")
-    print(f"  😤 Pain Points   : {len(pain_points)}")
-    print(f"  💬 Replies       : {len(replies)}")
-    print(f"  📈 Avg Quality   : {avg_score:.1f}/100")
-    print(f"  📂 Memory Stats  : {learning.get_memory_stats()}")
+    print(f"  Time     : {elapsed:.1f}s")
+    print(f"  Competitors   : {len(competitors)}")
+    print(f"  Pain Points   : {len(pain_points)}")
+    print(f"  Replies       : {len(replies)}")
+    print(f"  Avg Quality   : {avg_score:.1f}/100")
+    print(f"  Memory Stats  : {learning.get_memory_stats()}")
     print()
 
 

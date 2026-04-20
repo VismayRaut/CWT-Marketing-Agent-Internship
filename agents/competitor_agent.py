@@ -72,7 +72,7 @@ class CompetitorResearchAgent:
         -------
         list[dict]  – competitor objects
         """
-        logger.info("CompetitorResearchAgent.run() → %s", company_url)
+        logger.info("CompetitorResearchAgent.run() -> %s", company_url)
 
         user_prompt = self._build_prompt(company_url, company_context)
         raw = self.llm.complete(
@@ -125,7 +125,7 @@ class CompetitorResearchAgent:
         json_str = clean[start : end + 1]
         try:
             competitors = json.loads(json_str)
-            # Validate structure
+            DEFAULT_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
             validated = []
             for item in competitors:
                 if isinstance(item, dict) and "name" in item:

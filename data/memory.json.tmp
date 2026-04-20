@@ -1,0 +1,104 @@
+{
+  "pain_points": [],
+  "replies": [],
+  "competitor_analyses": [
+    {
+      "company_url": "https://www.crowdwisdomtrading.com/",
+      "competitors": [
+        {
+          "name": "Kalshi",
+          "url": "https://www.kalshi.com",
+          "description": "Regulated prediction market platform offering event contracts on economic, political, and market outcomes. Dominant player by trading volume with a focus on US-based traders seeking to bet on future events.",
+          "category": "direct"
+        },
+        {
+          "name": "Polymarket",
+          "url": "https://polymarket.com",
+          "description": "Offshore prediction market platform allowing users to trade on event outcomes across multiple categories. Major competitor to Kalshi with significant user base, though operates in less regulated environment.",
+          "category": "direct"
+        },
+        {
+          "name": "eToro",
+          "url": "https://www.etoro.com",
+          "description": "Social trading platform enabling users to discover, follow, and copy trades from top-performing traders in real-time. Combines crowd wisdom with copy trading functionality for retail investors.",
+          "category": "direct"
+        },
+        {
+          "name": "TradingView",
+          "url": "https://www.tradingview.com",
+          "description": "World's largest charting platform with integrated social community where traders share ideas, strategies, and analysis. Hosts user-generated trading content and connects to multiple brokerages via API.",
+          "category": "direct"
+        },
+        {
+          "name": "TipRanks",
+          "url": "https://www.tipranks.com",
+          "description": "Provides aggregated analyst ratings, insider trading data, and crowdsourced stock picks from retail investors. Delivers consensus intelligence on individual securities and market trends.",
+          "category": "direct"
+        },
+        {
+          "name": "Seeking Alpha",
+          "url": "https://seekingalpha.com",
+          "description": "Financial content platform aggregating investment ideas, stock analysis, and crowdsourced research from professional and retail contributors. Offers both premium analyst insights and community-driven intelligence.",
+          "category": "direct"
+        },
+        {
+          "name": "Investing.com",
+          "url": "https://www.investing.com",
+          "description": "Financial data and analysis platform providing market data, technical analysis tools, and community forums where traders share signals and insights. Serves as both data source and community hub.",
+          "category": "direct"
+        },
+        {
+          "name": "The Motley Fool",
+          "url": "https://www.fool.com",
+          "description": "Investment advisory service delivering stock recommendations and market analysis through both professional analysts and community-driven insights. Focuses on long-term investment signals for retail investors.",
+          "category": "direct"
+        },
+        {
+          "name": "Trade Ideas",
+          "url": "https://www.trade-ideas.com",
+          "description": "AI-powered trading signal platform using machine learning to scan markets and generate trade alerts. Provides automated trade signals based on technical analysis and pattern recognition.",
+          "category": "direct"
+        },
+        {
+          "name": "ForecastEx",
+          "url": "https://forecastex.com",
+          "description": "Prediction market platform offering forecast contracts on economic, political, and climate events. Taps into crowd wisdom to aggregate predictions on key future outcomes.",
+          "category": "direct"
+        },
+        {
+          "name": "Pariflow",
+          "url": "https://www.pariflow.com",
+          "description": "Prediction market platform with industry-leading user experience designed for event-based trading. Emphasizes accessibility and design while enabling users to trade on future outcomes.",
+          "category": "emerging"
+        },
+        {
+          "name": "Echo Trade",
+          "url": "https://www.echotrade.com",
+          "description": "Add-on copy trading service that integrates with existing brokerages (E*TRADE, Schwab, Fidelity, Robinhood) to enable users to mirror trades from top performers without switching platforms.",
+          "category": "indirect"
+        }
+      ],
+      "stored_at": "2026-04-20T18:49:04.438170+00:00"
+    }
+  ],
+  "reports": [
+    {
+      "company_url": "https://www.crowdwisdomtrading.com/",
+      "report_preview": "## 1. Executive Summary\nCrowdWisdomTrading (CWT) distinguishes itself in the crowded trading signals market by aggregating insights from over 2,086 professional traders into AI-powered weekly signals with a 73.3% success rate, targeting time-constrained retail traders. While facing stiff competition from prediction markets like Kalshi and Polymarket, social platforms like eToro and TradingView, and AI signal providers like Trade Ideas, CWT's focus on actionable trade entries, stop-losses, and targets provides a unique edge in collective intelligence. Strategic emphasis on verified performance tracking and time savings positions CWT for growth amid a booming prediction and social trading sector.\n\n## 2. Market Overview\nThe trading signals and prediction markets sector is experiencing rapid expansion, driven by retail trader adoption of social and crowd-sourced intelligence, with prediction markets alone seeing tens of millions of users amid a \"gold rush\" from entrants like Coinbase and R",
+      "full_report_length": 9868,
+      "stored_at": "2026-04-20T18:49:24.705106+00:00"
+    }
+  ],
+  "feedback_scores": [],
+  "run_history": [
+    {
+      "company_url": "https://www.crowdwisdomtrading.com/",
+      "competitors_found": 12,
+      "pain_points_found": 0,
+      "replies_generated": 0,
+      "avg_reply_quality": 0.0,
+      "elapsed_seconds": 45.0,
+      "run_at": "2026-04-20T18:49:39.328762+00:00"
+    }
+  ]
+}

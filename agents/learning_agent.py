@@ -79,12 +79,10 @@ class LearningAgent:
             return dict(EMPTY_MEMORY)
 
     def _write(self, data: Dict[str, Any]) -> None:
-        """Write memory to disk atomically (write-then-rename)."""
-        tmp_path = self.memory_path + ".tmp"
+        """Write memory to disk."""
         try:
-            with open(tmp_path, "w", encoding="utf-8") as fh:
+            with open(self.memory_path, "w", encoding="utf-8") as fh:
                 json.dump(data, fh, indent=2, ensure_ascii=False)
-            os.replace(tmp_path, self.memory_path)
         except IOError as exc:
             logger.error("Failed to write memory: %s", exc)
 

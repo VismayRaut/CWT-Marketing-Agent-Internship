@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 APIFY_BASE_URL = "https://api.apify.com/v2"
 
 # Actor IDs (Apify store slugs)
-REDDIT_SCRAPER_ACTOR = "trudax/reddit-scraper-lite"
+REDDIT_SCRAPER_ACTOR = "trudax~reddit-scraper-lite"
 
 
 class ApifyClient:

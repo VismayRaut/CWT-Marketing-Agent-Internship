@@ -5,3 +5,4 @@ env/
 .env
 agent_run.log
 data/memory.json
+scratch/
