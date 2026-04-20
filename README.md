@@ -329,14 +329,17 @@ decision-fatigued active traders.
 | 4 | Panic-sold my entire position on red day | emotional_trading | r/wallstreetbets |
 | 5 | Why do analyst predictions change every week? | bad_prediction | r/investing |
 
-### Sample Reddit Replies
+### Sample Reddit Replies (Drafts for Review)
+
+> **Note:** These replies are *drafted* by the AI based on the pain points and are NOT automatically published to Reddit to avoid spam. The URLs below point to the original post where these replies *should* be posted manually or pending human approval.
 
 ---
 
-**Reply 1** — *Conversational and empathetic*  
-**Pain:** Drowning in conflicting buy/sell signals  
-**Subreddit:** r/investing  
+**Drafted Reply 1** — *Conversational and empathetic*  
+**Target Pain Point:** Drowning in conflicting buy/sell signals  
+**Target Subreddit:** r/investing  
 **Quality Score:** 100/100
+**Target Post URL (Where to reply):** https://reddit.com/...
 
 > Honestly, this used to be my entire Sunday routine — three browser tabs open,  
 > five different YouTube videos, and still no clue what to do Monday morning.  
@@ -351,10 +354,11 @@ decision-fatigued active traders.
 
 ---
 
-**Reply 2** — *Storytelling with personal anecdote*  
-**Pain:** Paid for a "guru" course that lost me money  
-**Subreddit:** r/stocks  
+**Drafted Reply 2** — *Storytelling with personal anecdote*  
+**Target Pain Point:** Paid for a "guru" course that lost me money  
+**Target Subreddit:** r/stocks  
 **Quality Score:** 100/100
+**Target Post URL (Where to reply):** https://reddit.com/...
 
 > Oh man, been there. Three years ago I dropped $600 on some "alpha trader"  
 > newsletter. Followed it religiously. Lost more than the subscription cost.
@@ -369,10 +373,11 @@ decision-fatigued active traders.
 
 ---
 
-**Reply 3** — *Practical and slightly self-deprecating*  
-**Pain:** Spent 6 hours Sunday researching, still unsure  
-**Subreddit:** r/personalfinance  
+**Drafted Reply 3** — *Practical and slightly self-deprecating*  
+**Target Pain Point:** Spent 6 hours Sunday researching, still unsure  
+**Target Subreddit:** r/personalfinance  
 **Quality Score:** 80/100
+**Target Post URL (Where to reply):** https://reddit.com/...
 
 > Six hours sounds about right — I used to do eight. And at the end of it my  
 > conviction was somehow *lower* than when I started, which is a special kind  
@@ -388,10 +393,11 @@ decision-fatigued active traders.
 
 ---
 
-**Reply 4** — *Matter-of-fact with dry humour*  
-**Pain:** Panic-sold my entire position on red day  
-**Subreddit:** r/wallstreetbets  
+**Drafted Reply 4** — *Matter-of-fact with dry humour*  
+**Target Pain Point:** Panic-sold my entire position on red day  
+**Target Subreddit:** r/wallstreetbets  
 **Quality Score:** 80/100
+**Target Post URL (Where to reply):** https://reddit.com/...
 
 > Panic-selling is basically just paying a premium to feel less anxious for  
 > thirty minutes before regretting it. The fee is real, the relief is temporary.
@@ -405,10 +411,11 @@ decision-fatigued active traders.
 
 ---
 
-**Reply 5** — *Reflective, learned the hard way*  
-**Pain:** Why do analyst predictions change every week?  
-**Subreddit:** r/investing  
+**Drafted Reply 5** — *Reflective, learned the hard way*  
+**Target Pain Point:** Why do analyst predictions change every week?  
+**Target Subreddit:** r/investing  
 **Quality Score:** 100/100
+**Target Post URL (Where to reply):** https://reddit.com/...
 
 > Because analysts are people, and people rationalise new information to fit  
 > whatever narrative they had yesterday. It took me an embarrassingly long time  

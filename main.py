@@ -262,14 +262,14 @@ def _write_output(
             f"{pp.get('pain_summary','')}  \n"
             f"Source: {pp.get('url','')}\n"
         )
-    lines += ["\n---\n", "## Reddit Replies\n"]
+    lines += ["\n---\n", "## Reddit Replies (Drafts for Review)\n", "> **Note:** These replies are *drafted* by the AI based on the pain points and are NOT automatically published to Reddit to avoid spam. The URLs below point to the original post where these replies *should* be posted manually or pending human approval.\n\n"]
     for i, r in enumerate(replies, 1):
         lines.append(
-            f"### Reply {i} — {r['tone']}\n"
-            f"**Pain Point:** {r['pain_point_title']}  \n"
-            f"**Subreddit:** r/{r.get('subreddit','?')}  \n"
+            f"### Drafted Reply {i} — {r['tone']}\n"
+            f"**Target Pain Point:** {r['pain_point_title']}  \n"
+            f"**Target Subreddit:** r/{r.get('subreddit','?')}  \n"
             f"**Quality Score:** {r.get('quality_score', 'N/A')}/100  \n"
-            f"**Post URL:** {r.get('url','')}\n\n"
+            f"**Target Post URL (Where to reply):** {r.get('url','')}\n\n"
             f"{r['reply_text']}\n"
         )
 
